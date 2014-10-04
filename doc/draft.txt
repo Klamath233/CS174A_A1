@@ -1,0 +1,15 @@
+Required Part:
+  vertex shader
+  fragment shader
+  html file
+  css file
+  js file
+  libraries
+
+Extra Credit:
+  fragment shader: additional color var
+  listen to keyboard event: change color var
+  another fractal
+  equip the fractal with rotation
+
+
