@@ -305,6 +305,8 @@ function mult( u, v )
     }
     else {
         if ( u.length != v.length ) {
+            alert(u.length);
+            alert(v.length);
             throw "mult(): vectors are not the same dimension";
         }
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>CS174A, Fall 2014, Assignment 1, Xi Han</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="required-part">
+        <canvas id="required-canvas" width="512" height="512"></canvas>
+      </div>
+      <div class="clickable" id="rp-button">Play!</div>
+    </div>
+  </body>
+
+  <!-- Load js files after the page has been loaded. -->
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    uniform mat4 rMat;
+
+    void main() {
+      gl_PointSize = 1.0;
+      gl_Position = rMat * vPosition;
+    }
+  </script>
+
+  <script id="vertex-shader-3d" type="x-shader/x-vertex">
+    precision mediump float;
+    attribute vec4 vColor;
+    attribute vec4 vPosition;
+    varying vec4 fColor;
+    uniform mat4 rMat;
+
+    void main() {
+      gl_PointSize = 1.0;
+      fColor = vColor;
+      gl_Position = rMat * vPosition;
+    }
+  </script>
+
+  <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform vec4 color;
+
+    void main() {
+      gl_FragColor = color; // The color will be green.
+    }
+  </script>
+
+  <script id="fragment-shader-3d" type="x-shader/x-fragment">
+    precision mediump float;
+    varying vec4 fColor;
+
+    void main() {
+      gl_FragColor = fColor;
+    }
+  </script>
+
+  <script type="text/javascript" src="js/lib/webgl-utils.js"></script>
+  <script type="text/javascript" src="js/lib/initShaders.js"></script>
+  <script type="text/javascript" src="js/lib/MV.js"></script>
+  <script type="text/javascript" src="js/required.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+</html>
